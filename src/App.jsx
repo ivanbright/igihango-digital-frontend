@@ -10,6 +10,8 @@ import TaskAssignment from './pages/TaskAssignment'
 import TaskDetail from './pages/TaskDetail'
 import UserProfile from './pages/UserProfile'
 import LeaderTasks from './pages/LeaderTasks'
+import CreateGoal from './pages/CreateGoal'
+import HelpCenter from './pages/HelpCenter'
 
 function App() {
     return (
@@ -26,6 +28,8 @@ function App() {
                 <Route path="/task/:id" element={<TaskDetail />} />
                 <Route path="/profile" element={<UserProfile />} />
                 <Route path="/leader/:leaderId/tasks" element={<LeaderTasks />} />
+                <Route path="/create-goal" element={<CreateGoal />} />
+                <Route path="/help" element={<HelpCenter />} />
             </Routes>
         </Router>
     )

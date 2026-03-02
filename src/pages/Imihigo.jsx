@@ -1,12 +1,13 @@
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import { FileText, CheckCircle2, Clock, MessageSquare, User, Calendar, Filter } from 'lucide-react';
+import { FileText, CheckCircle2, Clock, MessageSquare, User, Calendar, Filter, Grid, List } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Imihigo = () => {
     const navigate = useNavigate();
     const [selectedSector, setSelectedSector] = useState('All');
+    const [viewMode, setViewMode] = useState('list'); // 'list' or 'grid'
 
     const sectors = [
         'All',
@@ -31,7 +32,8 @@ const Imihigo = () => {
             startDate: '2025-01-01',
             deadline: '2025-12-31',
             comments: 15,
-            category: 'Health'
+            category: 'Health',
+            image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80'
         },
         {
             id: 2,
@@ -44,7 +46,8 @@ const Imihigo = () => {
             startDate: '2025-06-01',
             deadline: '2026-06-30',
             comments: 23,
-            category: 'Agriculture'
+            category: 'Agriculture',
+            image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80'
         },
         {
             id: 3,
@@ -57,7 +60,8 @@ const Imihigo = () => {
             startDate: '2025-03-01',
             deadline: '2026-12-31',
             comments: 18,
-            category: 'Education'
+            category: 'Education',
+            image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80'
         },
         {
             id: 4,
@@ -70,7 +74,8 @@ const Imihigo = () => {
             startDate: '2025-01-15',
             deadline: '2027-12-31',
             comments: 12,
-            category: 'Social Welfare'
+            category: 'Social Welfare',
+            image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80'
         },
         {
             id: 5,
@@ -83,7 +88,8 @@ const Imihigo = () => {
             startDate: '2026-01-01',
             deadline: '2027-06-30',
             comments: 5,
-            category: 'Infrastructure'
+            category: 'Infrastructure',
+            image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80'
         },
         {
             id: 6,
@@ -96,7 +102,8 @@ const Imihigo = () => {
             startDate: '2025-02-01',
             deadline: '2026-08-31',
             comments: 20,
-            category: 'Agriculture'
+            category: 'Agriculture',
+            image: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&q=80'
         },
         {
             id: 7,
@@ -109,7 +116,8 @@ const Imihigo = () => {
             startDate: '2025-01-01',
             deadline: '2026-12-31',
             comments: 15,
-            category: 'Environment'
+            category: 'Environment',
+            image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80'
         },
         {
             id: 8,
@@ -122,7 +130,8 @@ const Imihigo = () => {
             startDate: '2025-04-01',
             deadline: '2026-12-31',
             comments: 18,
-            category: 'Economic Development'
+            category: 'Economic Development',
+            image: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=800&q=80'
         },
     ];
 
@@ -175,7 +184,10 @@ const Imihigo = () => {
 
                     {/* Stats */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 mb-4 sm:mb-6 md:mb-8">
-                        <div className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => setSelectedSector('All')}
+                            className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center">
                                     <FileText className="text-primary" size={18} />
@@ -187,7 +199,10 @@ const Imihigo = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/contributions')}
+                            className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-success/10 flex items-center justify-center">
                                     <CheckCircle2 className="text-success" size={18} />
@@ -199,7 +214,10 @@ const Imihigo = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => setSelectedSector('All')}
+                            className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center">
                                     <Clock className="text-primary" size={18} />
@@ -211,7 +229,10 @@ const Imihigo = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => setSelectedSector('All')}
+                            className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-gray-300/50 flex items-center justify-center">
                                     <Clock className="text-gray-500" size={18} />
@@ -223,7 +244,10 @@ const Imihigo = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all col-span-2 sm:col-span-1">
+                        <div
+                            onClick={() => navigate('/contributions')}
+                            className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all col-span-2 sm:col-span-1 cursor-pointer"
+                        >
                             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
                                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-success/10 flex items-center justify-center">
                                     <div className="text-success font-bold text-base sm:text-lg">68%</div>
@@ -237,7 +261,8 @@ const Imihigo = () => {
 
                     {/* Filters */}
                     <div className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-neumorphism mb-4 sm:mb-6">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
+                        <div className="flex flex-col gap-3 sm:gap-4">
+                            {/* Sector Filters */}
                             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                                 <Filter size={16} className="text-gray-600 sm:w-5 sm:h-5 flex-shrink-0" />
                                 <span className="text-xs sm:text-sm font-medium text-gray-700">Filter by Sector:</span>
@@ -254,10 +279,37 @@ const Imihigo = () => {
                                     </button>
                                 ))}
                             </div>
-                            <button className="px-4 py-2 sm:px-6 sm:py-2 bg-primary text-white rounded-lg sm:rounded-xl shadow-neumorphism-sm hover:shadow-neumorphism transition-all flex items-center gap-2 text-xs sm:text-sm self-start flex-shrink-0">
-                                <FileText size={16} />
-                                <span>Add New Igihango</span>
-                            </button>
+
+                            {/* View Toggle and Add Button */}
+                            <div className="flex items-center justify-between gap-2">
+                                {/* View Toggle */}
+                                <div className="flex items-center gap-1 bg-background rounded-lg shadow-neumorphism-sm p-1">
+                                    <button
+                                        onClick={() => setViewMode('list')}
+                                        className={`p-2 rounded-lg transition-all ${viewMode === 'list' ? 'bg-primary text-white shadow-neumorphism-sm' : 'text-gray-600'}`}
+                                        title="List View"
+                                    >
+                                        <List size={18} />
+                                    </button>
+                                    <button
+                                        onClick={() => setViewMode('grid')}
+                                        className={`p-2 rounded-lg transition-all ${viewMode === 'grid' ? 'bg-primary text-white shadow-neumorphism-sm' : 'text-gray-600'}`}
+                                        title="Grid View"
+                                    >
+                                        <Grid size={18} />
+                                    </button>
+                                </div>
+
+                                {/* Add New Button */}
+                                <button
+                                    onClick={() => navigate('/create-goal')}
+                                    className="px-3 py-2 sm:px-6 sm:py-2 bg-primary text-white rounded-lg sm:rounded-xl shadow-neumorphism-sm hover:shadow-neumorphism transition-all flex items-center gap-2 text-xs sm:text-sm flex-shrink-0"
+                                >
+                                    <FileText size={16} className="flex-shrink-0" />
+                                    <span className="hidden sm:inline">Add New Igihango</span>
+                                    <span className="sm:hidden">Add New</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -268,55 +320,125 @@ const Imihigo = () => {
                         </p>
                     </div>
 
-                    {/* Goals List */}
-                    <div className="space-y-3 sm:space-y-4">
-                        {goals.map((goal) => (
-                            <div key={goal.id} className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism">
-                                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-3 sm:gap-4">
-                                    <div className="flex-1 min-w-0">
-                                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
-                                            <span className={`px-2 py-0.5 sm:px-3 sm:py-1 rounded-lg text-[10px] sm:text-xs font-medium ${getCategoryColor(goal.category)}`}>
+                    {/* Goals List or Grid */}
+                    {viewMode === 'list' ? (
+                        <div className="space-y-3 sm:space-y-4">
+                            {goals.map((goal) => (
+                                <div key={goal.id} className="bg-background rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 shadow-neumorphism">
+                                    <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-3 sm:gap-4">
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                                                <span className={`px-2 py-0.5 sm:px-3 sm:py-1 rounded-lg text-[10px] sm:text-xs font-medium ${getCategoryColor(goal.category)}`}>
+                                                    {goal.category}
+                                                </span>
+                                                <span className={`px-2 py-0.5 sm:px-3 sm:py-1 rounded-lg text-[10px] sm:text-xs font-medium ${getStatusBg(goal.status)} ${getStatusColor(goal.status)}`}>
+                                                    {goal.status === 'in-progress' ? 'In Progress' : goal.status.charAt(0).toUpperCase() + goal.status.slice(1)}
+                                                </span>
+                                            </div>
+                                            <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-1 sm:mb-2">{goal.title}</h3>
+                                            <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 line-clamp-2">{goal.description}</p>
+
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
+                                                <div className="flex items-center gap-2">
+                                                    <User size={14} className="text-gray-400 sm:w-4 sm:h-4" />
+                                                    <div>
+                                                        <p className="text-[10px] sm:text-xs text-gray-500">Leader</p>
+                                                        <p className="text-xs sm:text-sm font-medium text-gray-700 truncate">{goal.leader}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <Calendar size={14} className="text-gray-400 sm:w-4 sm:h-4" />
+                                                    <div>
+                                                        <p className="text-[10px] sm:text-xs text-gray-500">Timeline</p>
+                                                        <p className="text-xs sm:text-sm font-medium text-gray-700">{goal.startDate} → {goal.deadline}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <MessageSquare size={14} className="text-gray-400 sm:w-4 sm:h-4" />
+                                                    <div>
+                                                        <p className="text-[10px] sm:text-xs text-gray-500">Comments</p>
+                                                        <p className="text-xs sm:text-sm font-medium text-gray-700">{goal.comments} discussions</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <div className="flex items-center justify-between mb-1 sm:mb-2">
+                                                    <span className="text-[10px] sm:text-xs text-gray-500">Progress</span>
+                                                    <span className="text-xs sm:text-sm font-bold text-gray-700">{goal.progress}%</span>
+                                                </div>
+                                                <div className="h-2 sm:h-3 bg-background rounded-full shadow-neumorphism-inset overflow-hidden">
+                                                    <div
+                                                        className={`h-full rounded-full transition-all ${goal.status === 'completed' ? 'bg-success' :
+                                                            goal.status === 'in-progress' ? 'bg-primary' :
+                                                                'bg-gray-400'
+                                                            }`}
+                                                        style={{ width: `${goal.progress}%` }}
+                                                    ></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex flex-row lg:flex-col gap-2 self-start">
+                                            <button
+                                                onClick={() => navigate(`/task/${goal.id}`)}
+                                                className="flex-1 lg:flex-none px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-background shadow-neumorphism-sm hover:shadow-neumorphism transition-all text-xs sm:text-sm text-gray-700"
+                                            >
+                                                View Details
+                                            </button>
+                                            <button
+                                                onClick={() => navigate('/communications')}
+                                                className="flex-1 lg:flex-none px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-background shadow-neumorphism-sm hover:shadow-neumorphism transition-all text-xs sm:text-sm text-gray-700 flex items-center justify-center gap-1 sm:gap-2"
+                                            >
+                                                <MessageSquare size={14} />
+                                                <span>Comment</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                            {goals.map((goal) => (
+                                <div
+                                    key={goal.id}
+                                    onClick={() => navigate(`/task/${goal.id}`)}
+                                    className="bg-background rounded-xl sm:rounded-2xl overflow-hidden shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer group"
+                                >
+                                    {/* Image */}
+                                    <div className="relative h-48 overflow-hidden">
+                                        <img
+                                            src={goal.image}
+                                            alt={goal.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                        />
+                                        <div className="absolute top-3 right-3 flex gap-2">
+                                            <span className={`px-2 py-1 rounded-lg text-xs font-medium backdrop-blur-sm ${getCategoryColor(goal.category)}`}>
                                                 {goal.category}
                                             </span>
-                                            <span className={`px-2 py-0.5 sm:px-3 sm:py-1 rounded-lg text-[10px] sm:text-xs font-medium ${getStatusBg(goal.status)} ${getStatusColor(goal.status)}`}>
+                                        </div>
+                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
+                                            <span className={`px-2 py-1 rounded-lg text-xs font-medium ${getStatusBg(goal.status)} ${getStatusColor(goal.status)}`}>
                                                 {goal.status === 'in-progress' ? 'In Progress' : goal.status.charAt(0).toUpperCase() + goal.status.slice(1)}
                                             </span>
                                         </div>
-                                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-1 sm:mb-2">{goal.title}</h3>
-                                        <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4 line-clamp-2">{goal.description}</p>
+                                    </div>
 
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 md:gap-4 mb-3 sm:mb-4">
-                                            <div className="flex items-center gap-2">
-                                                <User size={14} className="text-gray-400 sm:w-4 sm:h-4" />
-                                                <div>
-                                                    <p className="text-[10px] sm:text-xs text-gray-500">Leader</p>
-                                                    <p className="text-xs sm:text-sm font-medium text-gray-700 truncate">{goal.leader}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <Calendar size={14} className="text-gray-400 sm:w-4 sm:h-4" />
-                                                <div>
-                                                    <p className="text-[10px] sm:text-xs text-gray-500">Timeline</p>
-                                                    <p className="text-xs sm:text-sm font-medium text-gray-700">{goal.startDate} → {goal.deadline}</p>
-                                                </div>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <MessageSquare size={14} className="text-gray-400 sm:w-4 sm:h-4" />
-                                                <div>
-                                                    <p className="text-[10px] sm:text-xs text-gray-500">Comments</p>
-                                                    <p className="text-xs sm:text-sm font-medium text-gray-700">{goal.comments} discussions</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    {/* Content */}
+                                    <div className="p-4">
+                                        <h3 className="text-base font-bold text-gray-800 mb-2 line-clamp-2">{goal.title}</h3>
+                                        <p className="text-xs text-gray-600 mb-3 line-clamp-2">{goal.description}</p>
 
-                                        <div>
-                                            <div className="flex items-center justify-between mb-1 sm:mb-2">
-                                                <span className="text-[10px] sm:text-xs text-gray-500">Progress</span>
-                                                <span className="text-xs sm:text-sm font-bold text-gray-700">{goal.progress}%</span>
+                                        {/* Progress */}
+                                        <div className="mb-3">
+                                            <div className="flex items-center justify-between mb-1">
+                                                <span className="text-xs text-gray-500">Progress</span>
+                                                <span className="text-sm font-bold text-gray-700">{goal.progress}%</span>
                                             </div>
-                                            <div className="h-2 sm:h-3 bg-background rounded-full shadow-neumorphism-inset overflow-hidden">
+                                            <div className="h-2 bg-background rounded-full shadow-neumorphism-inset overflow-hidden">
                                                 <div
-                                                    className={`h-full rounded-full transition-all ${goal.status === 'completed' ? 'bg-success' :
+                                                    className={`h-full rounded-full ${goal.status === 'completed' ? 'bg-success' :
                                                         goal.status === 'in-progress' ? 'bg-primary' :
                                                             'bg-gray-400'
                                                         }`}
@@ -324,21 +446,23 @@ const Imihigo = () => {
                                                 ></div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div className="flex flex-row lg:flex-col gap-2 self-start">
-                                        <button className="flex-1 lg:flex-none px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-background shadow-neumorphism-sm hover:shadow-neumorphism transition-all text-xs sm:text-sm text-gray-700">
-                                            View Details
-                                        </button>
-                                        <button className="flex-1 lg:flex-none px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-background shadow-neumorphism-sm hover:shadow-neumorphism transition-all text-xs sm:text-sm text-gray-700 flex items-center justify-center gap-1 sm:gap-2">
-                                            <MessageSquare size={14} />
-                                            <span>Comment</span>
-                                        </button>
+                                        {/* Meta Info */}
+                                        <div className="flex items-center justify-between text-xs text-gray-500 pt-3 border-t border-gray-200">
+                                            <div className="flex items-center gap-1">
+                                                <User size={12} />
+                                                <span className="truncate">{goal.leader.split(' ')[0]}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <MessageSquare size={12} />
+                                                <span>{goal.comments}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

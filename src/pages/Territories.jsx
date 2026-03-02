@@ -1,8 +1,10 @@
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import { MapPin, Users, Target, TrendingUp, Building2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Territories = () => {
+    const navigate = useNavigate();
     const territories = [
         {
             province: 'Kigali City',
@@ -37,7 +39,10 @@ const Territories = () => {
 
                     {/* Stats */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/contributions')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                                     <MapPin className="text-primary" size={20} />
@@ -49,7 +54,10 @@ const Territories = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/urwego')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                                     <Building2 className="text-primary" size={20} />
@@ -61,7 +69,10 @@ const Territories = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/urwego')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-success/10 flex items-center justify-center">
                                     <Users className="text-success" size={20} />
@@ -73,7 +84,10 @@ const Territories = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/urwego')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-success/10 flex items-center justify-center">
                                     <TrendingUp className="text-success" size={20} />
@@ -97,7 +111,11 @@ const Territories = () => {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                     {territory.districts.map((district, idx) => (
-                                        <div key={idx} className="bg-background rounded-xl p-4 shadow-neumorphism-sm hover:shadow-neumorphism transition-all">
+                                        <div
+                                            key={idx}
+                                            onClick={() => navigate('/urwego')}
+                                            className="bg-background rounded-xl p-4 shadow-neumorphism-sm hover:shadow-neumorphism transition-all cursor-pointer"
+                                        >
                                             <h4 className="text-base md:text-lg font-semibold text-gray-800 mb-3">{district.name}</h4>
 
                                             <div className="space-y-2 mb-4">

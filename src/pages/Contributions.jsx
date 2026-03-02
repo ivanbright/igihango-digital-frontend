@@ -1,8 +1,10 @@
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import { MapPin, TrendingUp, Award, Users, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Contributions = () => {
+    const navigate = useNavigate();
     const provinces = [
         { name: 'Kigali City', progress: 85, rank: 1, goals: 45, completed: 38, population: '1.2M', color: 'from-green-400 to-green-600' },
         { name: 'Eastern Province', progress: 72, rank: 2, goals: 38, completed: 27, population: '2.8M', color: 'from-blue-400 to-blue-600' },
@@ -34,7 +36,10 @@ const Contributions = () => {
 
                     {/* National Stats */}
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/territories')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                                     <MapPin className="text-primary" size={20} />
@@ -46,7 +51,10 @@ const Contributions = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/imihigo')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-success/10 flex items-center justify-center">
                                     <TrendingUp className="text-success" size={20} />
@@ -58,7 +66,10 @@ const Contributions = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/imihigo')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                                     <Target className="text-primary" size={20} />
@@ -70,7 +81,10 @@ const Contributions = () => {
                             </div>
                         </div>
 
-                        <div className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all">
+                        <div
+                            onClick={() => navigate('/imihigo')}
+                            className="bg-background rounded-2xl p-4 md:p-6 shadow-neumorphism hover:shadow-neumorphism-sm transition-all cursor-pointer"
+                        >
                             <div className="flex items-center gap-3 md:gap-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-success/10 flex items-center justify-center">
                                     <Award className="text-success" size={20} />
@@ -89,7 +103,11 @@ const Contributions = () => {
 
                         <div className="space-y-4">
                             {provinces.map((province) => (
-                                <div key={province.name} className="bg-background rounded-xl p-4 md:p-5 shadow-neumorphism-sm hover:shadow-neumorphism transition-all">
+                                <div
+                                    key={province.name}
+                                    onClick={() => navigate('/territories')}
+                                    className="bg-background rounded-xl p-4 md:p-5 shadow-neumorphism-sm hover:shadow-neumorphism transition-all cursor-pointer"
+                                >
                                     <div className="flex flex-col md:flex-row md:items-center gap-4">
                                         <div className="flex items-center gap-4 flex-1">
                                             <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl bg-gradient-to-br ${province.color} flex items-center justify-center text-white font-bold text-lg md:text-2xl shadow-neumorphism-sm`}>
@@ -137,7 +155,11 @@ const Contributions = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                             {categories.map((category) => (
-                                <div key={category.name} className="bg-background rounded-xl p-4 shadow-neumorphism-sm hover:shadow-neumorphism transition-all text-center">
+                                <div
+                                    key={category.name}
+                                    onClick={() => navigate('/imihigo')}
+                                    className="bg-background rounded-xl p-4 shadow-neumorphism-sm hover:shadow-neumorphism transition-all text-center cursor-pointer"
+                                >
                                     <div className={`w-16 h-16 md:w-20 md:h-20 rounded-full ${category.color} mx-auto mb-3 flex items-center justify-center text-white font-bold text-xl md:text-2xl shadow-neumorphism-sm`}>
                                         {category.contribution}%
                                     </div>
