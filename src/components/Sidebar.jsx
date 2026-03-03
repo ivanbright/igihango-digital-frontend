@@ -1,4 +1,4 @@
-import { Home, Users, Target, TrendingUp, MessageSquare, MapPin, BarChart3, HelpCircle, Plus, Menu, X } from 'lucide-react';
+import { Home, Users, Target, TrendingUp, MessageSquare, MapPin, BarChart3, HelpCircle, Plus, Menu, X, User } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -14,6 +14,7 @@ const Sidebar = () => {
         { icon: MessageSquare, label: 'Communications', path: '/communications' },
         { icon: MapPin, label: 'Territories', path: '/territories' },
         { icon: BarChart3, label: 'Reports & Analytics', path: '/reports' },
+        { icon: User, label: 'Profile', path: '/profile' },
     ];
 
     return (
@@ -60,8 +61,8 @@ const Sidebar = () => {
                                 to={item.path}
                                 onClick={() => setIsOpen(false)}
                                 className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all ${isActive
-                                        ? 'bg-white shadow-neumorphism text-primary'
-                                        : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
+                                    ? 'bg-white shadow-neumorphism text-primary'
+                                    : 'text-gray-600 hover:text-gray-800 hover:bg-white/50'
                                     }`}
                             >
                                 <div className="flex items-center gap-3">

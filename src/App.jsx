@@ -12,11 +12,13 @@ import UserProfile from './pages/UserProfile'
 import LeaderTasks from './pages/LeaderTasks'
 import CreateGoal from './pages/CreateGoal'
 import HelpCenter from './pages/HelpCenter'
+import Login from './pages/Login'
 
 function App() {
     return (
         <Router>
             <Routes>
+                <Route path="/login" element={<Login />} />
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/urwego" element={<Urwego />} />
                 <Route path="/imihigo" element={<Imihigo />} />

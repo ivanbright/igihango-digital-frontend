@@ -181,9 +181,9 @@ const UserProfile = () => {
                                         {recentActivity.map((activity, idx) => (
                                             <div key={idx} className="flex items-start gap-3 p-3 bg-background rounded-lg shadow-neumorphism-sm">
                                                 <div className={`w-2 h-2 rounded-full mt-2 ${activity.type === 'completed' ? 'bg-success' :
-                                                        activity.type === 'assigned' ? 'bg-primary' :
-                                                            activity.type === 'comment' ? 'bg-purple-500' :
-                                                                'bg-orange-500'
+                                                    activity.type === 'assigned' ? 'bg-primary' :
+                                                        activity.type === 'comment' ? 'bg-purple-500' :
+                                                            'bg-orange-500'
                                                     }`}></div>
                                                 <div className="flex-1">
                                                     <p className="text-sm text-gray-800">{activity.action}</p>
